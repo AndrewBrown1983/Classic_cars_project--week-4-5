@@ -10,6 +10,7 @@ CREATE TABLE cars(
 
 CREATE TABLE customers(
   id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
   address VARCHAR(255),
   phone_number TEXT,
   wallet INT4
