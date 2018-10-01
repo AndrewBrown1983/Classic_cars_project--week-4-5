@@ -26,4 +26,18 @@ class Car
     SqlRunner.run(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM cars"
+    cars = SqlRunner.run(sql)
+    return cars.map{|car_hash| Car.new(car_hash)}
+
+  end
+
+  def delete()
+    sql = "DELETE FROM cars
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 end

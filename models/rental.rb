@@ -22,5 +22,14 @@ class Rental
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
-  
+
+
+
+  def self.all()
+    sql = "SELECT * FROM rentals"
+    results = SqlRunner.run(sql)
+    return results.map{|rental_hash| Rental.new(rental_hash)}
+  end
+
+
 end

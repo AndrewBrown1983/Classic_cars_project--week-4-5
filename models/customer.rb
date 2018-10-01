@@ -23,9 +23,51 @@ class Customer
     @id = result['id'].to_i
   end
 
+  def delete()
+    sql = "DELETE FROM customers
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def update()
+    sql = "UPDATE customers
+    SET (
+      name, address, phone_number, wallet
+    )
+    = (
+      $1, $2, $3, $4
+    )
+    WHERE id = $5"
+
+    values = [@name, @address, @phone_number, @wallet, @id]
+
+    SqlRunner.run(sql, values)
+  end
+
+  def cars()
+    sql = "SELECT cars.*
+    FROM cars INNER JOIN rentals
+    ON cars.id = rentals.car_id
+    WHERE customer_id = $1"
+
+    values = [@id]
+    cars = SqlRunner.run(sql, values)
+    return cars.map{|car_hash| Car.new(car_hash)}
+  end
+
+  def self.all()
+    sql = "SELECT * FROM customers"
+    customers = SqlRunner.run(sql)
+    return customers.map{|customer_hash| Customer.new(customer_hash)}
+  end
+
   def self.delete_all()
     sql = "DELETE FROM customers"
     SqlRunner.run(sql)
   end
+
+
+
 
 end
