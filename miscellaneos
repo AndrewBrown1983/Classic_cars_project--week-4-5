@@ -1,0 +1,5 @@
+
+delete form for cars:
+ <form method="post" action="/car_index/<%= @car.id %>/delete">
+  <input type="submit" value="Remove Car"/>
+</form>"

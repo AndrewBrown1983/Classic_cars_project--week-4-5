@@ -20,6 +20,13 @@ class Car
     @id = result['id'].to_i
   end
 
+  def delete()
+    sql = "DELETE FROM cars
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM cars"
 
@@ -33,11 +40,13 @@ class Car
 
   end
 
-  def delete()
-    sql = "DELETE FROM cars
-    WHERE id = $1"
-    values = [@id]
-    SqlRunner.run(sql, values)
+  def self.find(id)
+    sql = "SELECT * FROM cars WHERE id = $1"
+    values = [id]
+    car = SqlRunner.run(sql, values).first
+    return Car.new(car)
   end
+
+
 
 end

@@ -1,0 +1,11 @@
+<h2>List of Classic Cars</h2>
+
+<% for car in @cars %>
+  <p><%= car.type %></p>
+  <p>Cost per day: $<%= car.rental_cost %></p>
+  <form method="post" action="/car_index/<%= car.id %>/delete">
+   <input type="submit" value="Remove Car"/>
+ </form>"
+
+  <p>--</p>
+  <% end %>
