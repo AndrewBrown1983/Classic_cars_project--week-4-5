@@ -3,3 +3,10 @@ delete form for cars:
  <form method="post" action="/car_index/<%= @car.id %>/delete">
   <input type="submit" value="Remove Car"/>
 </form>"
+
+<p><a href="/car_index/<%= car.id %>">Show car</a></p>
+
+get '/car_index/:id' do
+  @car = Car.find(params[:id])
+  erb(:show)
+end

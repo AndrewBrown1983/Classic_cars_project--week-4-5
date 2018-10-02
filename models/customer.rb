@@ -45,6 +45,13 @@ class Customer
     SqlRunner.run(sql, values)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM customers WHERE id = $1"
+    values = [id]
+    car = SqlRunner.run(sql, values).first
+    return Customer.new(car)
+  end
+
   def cars()
     sql = "SELECT cars.*
     FROM cars INNER JOIN rentals

@@ -1,0 +1,15 @@
+<form method="post" action="/customer_index/<%= @customer.id %>/update">
+
+<label for="name">Name:</label>
+<input id="name" value="<%= @customer.name %>" type="text" name="name"/>
+
+<label for="address">Address</label>
+<input id="address" value="<%= @customer.address %>" type="text" name="address"/>
+
+<label for="phone_number">Phone Number</label>
+<input id="phone_number" value="<%= @customer.phone_number %>" type="text" name="phone_number"/>
+
+<input type="submit" value="Update details"/>
+
+
+</form>
