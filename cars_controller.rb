@@ -36,7 +36,9 @@ get "/new_customer" do
 end
 
 get "/new_rental" do
-  @cars = Car.all()
+  @cars = Car.available_cars()
+
+
   @customers = Customer.all()
   erb(:new_rental)
 end
@@ -56,7 +58,11 @@ end
 post "/rental_index" do
   rental = Rental.new(params)
   rental.save()
-  redirect to '/rental_index'
+
+  car = Car.find(params[:car_id])
+  car.hire_car
+
+  redirect to '/car_index'
 end
 
 post "/customer_index/:id/delete" do

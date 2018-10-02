@@ -23,6 +23,21 @@ class Rental
     @id = result['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE rentals
+    SET (
+      car_id, customer_id, review
+    )
+    = (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+
+    values = [@car_id, @customer_id, @review, @id]
+
+    SqlRunner.run(sql, values)
+  end
+
   def customer()
     sql = "SELECT * FROM customers WHERE
     id = $1"
@@ -39,6 +54,12 @@ class Rental
 
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM rentals WHERE id = $1"
+    values = [id]
+    rental = SqlRunner.run(sql, values).first
+    return Rental.new(rental)
+  end
 
   def self.all()
     sql = "SELECT * FROM rentals"

@@ -28,6 +28,27 @@ class Car
     SqlRunner.run(sql, values)
   end
 
+  def update()
+    sql = "UPDATE cars
+    SET (
+      type, rental_cost, status
+    )
+    = (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+
+    values = [@type, @rental_cost, @status, @id]
+
+    SqlRunner.run(sql, values)
+  end
+
+  def hire_car
+    sql = "UPDATE cars SET status = 'unavailable' WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.available_cars()
     sql = 'SELECT * FROM cars WHERE
     status = $1'
