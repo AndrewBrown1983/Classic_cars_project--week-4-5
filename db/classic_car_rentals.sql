@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS cars;
 CREATE TABLE cars(
   id SERIAL4 PRIMARY KEY,
   type VARCHAR(255),
-  rental_cost INT4
+  rental_cost INT4,
+  status VARCHAR(255) 
 );
 
 CREATE TABLE customers(

@@ -2,20 +2,21 @@ require_relative('../db/sql_runner')
 
 class Car
   attr_reader :id
-  attr_accessor :type, :rental_cost
+  attr_accessor :type, :rental_cost, :status
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @type = options['type']
     @rental_cost = options['rental_cost']
+    @status = options['status']
   end
 
   def save()
-    sql = "INSERT INTO cars (type, rental_cost)
-    VALUES ($1, $2)
+    sql = "INSERT INTO cars (type, rental_cost, status)
+    VALUES ($1, $2, $3)
     RETURNING id"
 
-    values = [@type, @rental_cost]
+    values = [@type, @rental_cost, @status]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
@@ -25,6 +26,15 @@ class Car
     WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def self.available_cars()
+    sql = 'SELECT * FROM cars WHERE
+    status = $1'
+    values = ["available"]
+    results = SqlRunner.run(sql, values)
+    return results.map{|results_hash| Car.new(results_hash)}
+
   end
 
   def self.delete_all()

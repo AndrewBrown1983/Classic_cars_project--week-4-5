@@ -8,42 +8,48 @@ Customer.delete_all()
 
 car1 = Car.new({
   "type" => "1957 Ford Thunderbird",
-  "rental_cost" => 500
+  "rental_cost" => 500,
+  "status" => "available"
   })
 
 car1.save()
 
 car2 = Car.new({
   "type" => "Aston Martin DB5",
-  "rental_cost" => 550
+  "rental_cost" => 550,
+  "status" => "available"
       })
 
 car2.save()
 
 car3 = Car.new({
   "type" => "Mercedes Benz 300SL",
-  "rental_cost" => 475
+  "rental_cost" => 475,
+  "status" => "available"
   })
 
 car3.save()
 
 car4 = Car.new({
   "type" => "1969 Camaro",
-  "rental_cost" => 625
+  "rental_cost" => 625,
+  "status" => "unavailable"
   })
 
 car4.save()
 
 car5 = Car.new({
   "type" => "1969 Ford Mustang",
-  "rental_cost" => 425
+  "rental_cost" => 425,
+  "status" => "available"
   })
 
 car5.save()
 
 car6 = Car.new({
   "type" => "Ferrari Enzo",
-  "rental_cost" => 600
+  "rental_cost" => 600,
+  "status" => "available"
   })
 
 car6.save()

@@ -3,6 +3,7 @@
 <% for car in @cars %>
   <p><%= car.type %></p>
   <p>Cost per day: $<%= car.rental_cost %></p>
+  <p>Status: <%= car.status %></p>
   <form method="post" action="/car_index/<%= car.id %>/delete">
    <input type="submit" value="Remove Car"/>
  </form>"
