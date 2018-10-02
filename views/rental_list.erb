@@ -1,0 +1,8 @@
+<h2>Current Rentals</h2>
+
+<% for rental in @rentals %>
+  <p><%= rental.customer.name %></p>
+  <p><%= rental.car.type %></p>
+  <p>--</p>
+
+<% end %>

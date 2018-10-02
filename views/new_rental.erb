@@ -1,0 +1,26 @@
+
+
+<form action="/rental_index" method="post">
+  <label>
+    Select Customer:
+      <select name="customer_id">
+        <option disabled selected value> -- select a customer -- </option>
+        <% for customer in @customers %>
+        <option value="<%= customer.id %>"><%= customer.name %></option>
+          <% end %>
+      </select>
+  </label>
+
+  <label>
+    Select Model:
+    <select name="car_id">
+      <option disabled selected value> -- select a model -- </option>
+      <% for car in @cars %>
+      <option value="<%= car.id %>"><%= car.type %></option>"
+      <% end %>
+    </select>
+  </label>
+
+<input class="btn btn-action" type="submit" value="add rental"/>
+
+</form>

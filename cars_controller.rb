@@ -21,6 +21,11 @@ get "/car_index" do
   erb(:car_list)
 end
 
+get "/rental_index" do
+  @rentals = Rental.all()
+  erb(:rental_list)
+end
+
 get "/new_car" do
   erb(:new_car)
 
@@ -28,6 +33,12 @@ end
 
 get "/new_customer" do
   erb(:new_customer)
+end
+
+get "/new_rental" do
+  @cars = Car.all()
+  @customers = Customer.all()
+  erb(:new_rental)
 end
 
 post "/customer_index" do
@@ -42,11 +53,19 @@ post "/car_index" do
   redirect to '/car_index'
 end
 
+post "/rental_index" do
+  rental = Rental.new(params)
+  rental.save()
+  redirect to '/rental_index'
+end
+
 post "/customer_index/:id/delete" do
   customer = Customer.find(params[:id])
   customer.delete()
   redirect to "/customer_index"
 end
+
+
 
 get "/customer_index/:id/edit" do
   @customer = Customer.find(params[:id])

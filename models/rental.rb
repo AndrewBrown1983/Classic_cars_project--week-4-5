@@ -23,6 +23,21 @@ class Rental
     @id = result['id'].to_i
   end
 
+  def customer()
+    sql = "SELECT * FROM customers WHERE
+    id = $1"
+    values = [@customer_id]
+    result = SqlRunner.run(sql, values).first
+    return Customer.new(result)
+  end
+
+  def car()
+    sql = "SELECT * FROM cars WHERE id = $1"
+    values = [@car_id]
+    result = SqlRunner.run(sql, values).first
+    return Car.new(result)
+
+  end
 
 
   def self.all()

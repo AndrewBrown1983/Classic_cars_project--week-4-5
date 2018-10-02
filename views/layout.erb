@@ -7,10 +7,43 @@
   <title>Document</title>
 </head>
 <body>
+<header>
 <h1>Fast Freddy's Classic Car Rentals</h1>
+</header>
 <div>
   <%= yield %>
 </div>
+<nav>
 
+  <ul>
+    <li>
+    <a href="/">Home</a>
+  </li>
+  <li>
+    <a href="/customer_index">Freddy's Customers</a>
+  </li>
+  <li>
+    <a href="/car_index">Freddy's Cars</a>
+  </li>
+  <li>
+    <a href="/rental_index">Freddy's Rentals</a>
+  </li>
+
+
+  
+    <li>
+      <form method="get" action="/new_customer">
+      <input type="submit" value="Add New Customer"/></form>
+    </li>
+    <li>
+      <form method="get" action="/new_car">
+      <input type="submit" value="Add New Car"/></form>
+    </li>
+
+  </ul>
+</nav>
+<main>
+
+</main>
 </body>
 </html>
