@@ -4,5 +4,6 @@
   <p><%= rental.customer.name %></p>
   <p><%= rental.car.type %></p>
   <p>--</p>
-
+  <form method="post" action="/rental_index/<%= rental.id %>/return">
+  <input type="submit" value="Return Car"/></form>
 <% end %>

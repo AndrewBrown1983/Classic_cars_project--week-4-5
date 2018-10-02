@@ -65,6 +65,16 @@ post "/rental_index" do
   redirect to '/car_index'
 end
 
+post "/rental_index/:id/return" do
+  rental = Rental.find(params[:id])
+  car = rental.car()
+  car.return_car()
+
+  Rental.delete(rental.id)
+  redirect to "/rental_index"
+
+end
+
 post "/customer_index/:id/delete" do
   customer = Customer.find(params[:id])
   customer.delete()
