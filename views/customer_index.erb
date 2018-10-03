@@ -7,9 +7,9 @@
   </tr>
 <% for customer in @customers %>
   <tr>
-    <th><p>Name: <%= customer.name %></p></th>
-  <th><p>Address: <%= customer.address %></p></th>
-  <th><p>Phone Number: <%= customer.phone_number %></p></th>
+    <th><p> <%= customer.name %></p></th>
+  <th><p> <%= customer.address %></p></th>
+  <th><p> <%= customer.phone_number %></p></th>
 
   <th><form method="post" action="/customer_index/<%= customer.id %>/delete">
    <input type="submit" value="Remove Customer"/>
