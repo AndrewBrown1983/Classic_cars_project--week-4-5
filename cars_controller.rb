@@ -62,7 +62,7 @@ post "/rental_index" do
   car = Car.find(params[:car_id])
   car.hire_car
 
-  redirect to '/car_index'
+  redirect to '/rental_index'
 end
 
 post "/rental_index/:id/return" do

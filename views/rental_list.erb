@@ -1,9 +1,19 @@
 <h2>Current Rentals</h2>
 
+  <table>
+    <tr>
+      <th>Customer</th>
+      <th>Car</th>
+
+    </tr>
 <% for rental in @rentals %>
-  <p><%= rental.customer.name %></p>
-  <p><%= rental.car.type %></p>
-  <p>--</p>
-  <form method="post" action="/rental_index/<%= rental.id %>/return">
-  <input type="submit" value="Return Car"/></form>
+  <td><p><%= rental.customer.name %></p></td>
+  <td><p><%= rental.car.type %></p></td>
+
+  <td><form method="post" action="/rental_index/<%= rental.id %>/return">
+  <input type="submit" value="Return Car"/></form></td>
+</tr>
+
+
 <% end %>
+</table>

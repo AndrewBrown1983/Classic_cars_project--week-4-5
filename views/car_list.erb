@@ -1,12 +1,22 @@
 <h2>List of Classic Cars</h2>
-
+<div>
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Rental Cost</th>
+    <th>Status</th>
+  </tr>
 <% for car in @cars %>
-  <p><%= car.type %></p>
-  <p>Cost per day: $<%= car.rental_cost %></p>
-  <p>Status: <%= car.status %></p>
-  <form method="post" action="/car_index/<%= car.id %>/delete">
+  <tr>
+    <td><p><%= car.type %></p></td>
+  <td><p>$<%= car.rental_cost %></p></td>
+  <td><p><%= car.status %></p></td>
+  <td><form method="post" action="/car_index/<%= car.id %>/delete">
    <input type="submit" value="Remove Car"/>
- </form>"
+ </form></td>
+</tr>
 
-  <p>--</p>
   <% end %>
+
+  
+</div>

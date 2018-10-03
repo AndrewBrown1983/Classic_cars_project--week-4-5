@@ -1,0 +1,47 @@
+body {background-color: #B1C5AF}
+
+header {font-size: 25px;
+font-family: fantasy;
+display:flex;
+
+text-align: center;}
+header img {
+  height: 180px;
+  widows: 180px;
+}
+
+nav ul {
+
+  display: flex;
+  padding-left: 0;
+  justify-content: space-around;
+
+}
+
+li {list-style-type: none;}
+
+li a, li a:link, li a:visited {
+  text-decoration: none;
+  color: #2A6523;
+  padding: 15px;
+}
+
+li a:hover, li a:active, li a:focus {
+  background: #B2E0AD ;
+}
+h2 {font-family: 'Raleway', sans-serif;}
+main {font-family: 'Raleway', sans-serif;}
+
+table  {
+
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  border: solid 1px;
+  color: #2A6523
+
+}
+tr {
+  border: solid 1px #2A6523;
+}
+.home {align-items: center;}
